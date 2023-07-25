@@ -17,10 +17,10 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: '/index.html',
-        title: 'Editor Web Application'
+        title: 'Progressive Web Application'
       }),
       new WebpackPwaManifest({
-        name: 'Editor Web Application',
+        name: 'Progressive Web Application',
         description: 'It runs simple code',
         background_color: '#ffffff',
         inject: true,
