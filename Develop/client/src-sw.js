@@ -28,16 +28,12 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
 registerRoute(
-  ({request}) => request.destination === 'assets',
+  ({request}) => ['style', 'script', 'worker'].includes(request.destination),
   new CacheFirst({
-    cacheName: 'my-asset-cache',
+    cacheName: 'asset-cache',
     plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-      new ExpirationPlugin({
-        maxEntries: 60, 
-        maxAgeSeconds: 30 * 24 * 60 * 60, 
+      new offlineFallback({
+       pageFallback: './index.html',
       }),
     ],
   }),

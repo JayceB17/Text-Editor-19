@@ -16,7 +16,7 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: '/index.html',
+        template: './index.html',
         title: 'Progressive Web Application'
       }),
       new WebpackPwaManifest({
@@ -36,7 +36,7 @@ module.exports = () => {
         ]
       }),
       new InjectManifest({
-        swSrc: './scr-sw.js',
+        swSrc: './src-sw.js',
         swDest: 'service-worker.js'
       }),
     ],

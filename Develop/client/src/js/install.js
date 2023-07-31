@@ -7,6 +7,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
 
 
 butInstall.addEventListener('click', async () => {
+    console.log("hello")
     const promptEvent = window.deferredPrompt;
     if (!promptEvent) {
         return;
@@ -18,5 +19,6 @@ butInstall.addEventListener('click', async () => {
 
 
 window.addEventListener('appinstalled', (event) => {
+    console.log('installed')
     window.deferredPrompt = null;
 });
