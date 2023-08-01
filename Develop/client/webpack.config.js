@@ -21,15 +21,16 @@ module.exports = () => {
       }),
       new WebpackPwaManifest({
         name: 'Progressive Web Application',
+        fingerprints: false,
         description: 'It runs simple code',
         background_color: '#ffffff',
         inject: true,
         themem_color: '#ffffff',
-        strat_url: '/',
+        start_url: '/',
         publicPath: '/',
-        Icons: [
+        icons: [
           {
-            src: path.resolve('favicon.ico'),
+            src: path.resolve('./src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
@@ -37,7 +38,7 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js'
+        swDest: './src-sw.js'
       }),
     ],
 
